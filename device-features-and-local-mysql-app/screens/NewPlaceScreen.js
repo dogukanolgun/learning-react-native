@@ -5,13 +5,14 @@ import {
   Button,
   Text,
   TextInput,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 import { useDispatch } from "react-redux";
 
 import Colors from "../constants/Colors";
 import * as placesActions from "../store/places-actions";
 import ImagePicker from "../components/ImagePicker";
+import LocationPicker from "../components/LocationPicker";
 
 const NewPlaceScreen = (props) => {
   const [titleValue, setTitleValue] = useState("");
@@ -42,6 +43,7 @@ const NewPlaceScreen = (props) => {
           value={titleValue}
         />
         <ImagePicker onImageTaken={imageTakenHandler} />
+        <LocationPicker />
         <Button
           title="Save Place"
           color={Colors.primary}
@@ -53,24 +55,24 @@ const NewPlaceScreen = (props) => {
 };
 
 NewPlaceScreen.navigationOptions = {
-  headerTitle: "Add Place"
+  headerTitle: "Add Place",
 };
 
 const styles = StyleSheet.create({
   form: {
-    margin: 30
+    margin: 30,
   },
   label: {
     fontSize: 18,
-    marginBottom: 15
+    marginBottom: 15,
   },
   textInput: {
     borderBottomColor: "#ccc",
     borderBottomWidth: 1,
     marginBottom: 15,
     paddingVertical: 4,
-    paddingHorizontal: 2
-  }
+    paddingHorizontal: 2,
+  },
 });
 
 export default NewPlaceScreen;
